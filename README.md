@@ -1,10 +1,10 @@
-# @buxuku/ai-code-reviewer
+# @shaojiancong/ai-code-reviewer
 
 ## 介绍
 
 ![](preview.png)
 
-`@buxuku/ai-code-reviewer` 是一款应用于 GitLab Merge Request 代码审查的小工具，支持调用私有化部署的 GitLab API，并使用 Deepseek API 获取审查结果。请注意，在使用它时，需要确保符合公司合规要求。😉
+`@shaojiancong/ai-code-reviewer` 是一款应用于 GitLab Merge Request 代码审查的小工具，支持调用私有化部署的 GitLab API，并使用 Deepseek API 获取审查结果。请注意，在使用它时，需要确保符合公司合规要求。😉
 
 
 ## 特点
@@ -20,7 +20,7 @@
 ## 安装
 
 ```sh
-npm i @buxuku/ai-code-reviewer
+npm i @shaojiancong/ai-code-reviewer
 `````
 
 ## 使用
@@ -33,7 +33,7 @@ Usage: ai-code-reviewer [options]
 Options:
   -g, --gitlab-api-url <string>       GitLab API URL (default: " https://gitlab.com/api/v4")
   -t, --gitlab-access-token <string>  GitLab Access Token
-  -o, --Deepseek-api-url <string>       Deepseek API URL (default: "https://api.Deepseek.com")
+  -o, --Deepseek-api-url <string>       Deepseek API URL (default: "https://api.deepseek.com")
   -a, --Deepseek-access-token <string>  Deepseek Access Token
   -p, --project-id <number>           GitLab Project ID
   -m, --merge-request-id <string>     GitLab Merge Request ID
@@ -44,7 +44,7 @@ Options:
 示例:
 
 ```sh
-ai-code-reviewer -g https://gitlab.com/api/v4 -t glpat-xxxxxxx -o https://api.Deepseek.com -a skxxxxxxx,skxxxxxxx -p 432288 -m 8
+ai-code-reviewer -g https://gitlab.com/api/v4 -t glpat-xxxxxxx -o https://api.deepseek.com -a skxxxxxxx,skxxxxxxx -p 432288 -m 8
 ```
 
 ### 在 CI 中使用
@@ -59,7 +59,7 @@ Code Review:
   stage: merge-request  
   image: node:latest
   script:
-    - npm i @buxuku/ai-code-reviewer -g
+    - npm i @shaojiancong/ai-code-reviewer -g
     - ai-code-reviewer -t "$GITLAB_TOKEN" -a "$CHATGPT_KEY"  -p "$CI_MERGE_REQUEST_PROJECT_ID" -m "$CI_MERGE_REQUEST_IID"
   only:
     - merge_requests
